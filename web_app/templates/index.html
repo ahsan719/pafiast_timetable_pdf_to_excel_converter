@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+    <div class="background-globes">
+        <div class="globe globe-1"></div>
+        <div class="globe globe-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <ion-icon name="grid-outline"></ion-icon>
+                <span>Timely</span>
+            </div>
+            <h1>Timetable Converter</h1>
+            <p>Upload your PDF classroom timetable to get a formatted Excel report instantly.</p>
+        </header>
+
+        <main>
+            <!-- UPload Section -->
+            <section id="upload-section" class="card glass-card">
+                <div class="drop-zone" id="drop-zone">
+                    <div class="icon-wrapper">
+                        <ion-icon name="cloud-upload-outline"></ion-icon>
+                    </div>
+                    <h3>Drag & Drop PDF here</h3>
+                    <p>or</p>
+                    <button class="btn-primary" onclick="document.getElementById('file-input').click()">Browse Files</button>
+                    <input type="file" id="file-input" hidden accept=".pdf">
+                    <p class="file-name" id="file-name"></p>
+                </div>
+            </section>
+
+            <!-- Loading State -->
+            <section id="loading-section" class="hidden">
+                <div class="loader"></div>
+                <p>Analyzing PDF & Formatting Excel...</p>
+            </section>
+
+            <!-- Result Section -->
+            <section id="result-section" class="hidden">
+                <div class="success-card glass-card">
+                    <div class="success-icon">
+                        <ion-icon name="checkmark-circle"></ion-icon>
+                    </div>
+                    <h2>Conversion Successful!</h2>
+                    <p>Your timetable has been processed and organized by classroom.</p>
+                    
+                    <a id="download-btn" href="#" class="btn-download">
+                        <ion-icon name="download-outline"></ion-icon>
+                        Download Excel Report
+                    </a>
+                </div>
+
+                <div class="preview-container">
+                    <h3>Data Preview</h3>
+                    <div id="dashboard-grid" class="dashboard-grid">
+                        <!-- Room Cards will be injected here -->
+                    </div>
+                </div>
+                
+                <button class="btn-text" onclick="location.reload()">Convert Another File</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
