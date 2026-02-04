@@ -39,13 +39,26 @@ def process_pdf_to_data(pdf_path):
         for page in pdf.pages:
             # 1. Identify Room and Section from page text
             page_text = page.extract_text() or ""
+            lines = [line.strip() for line in page_text.split('\n') if line.strip()]
             
-            # Extract Room (e.g., A1-109)
-            room_match = re.search(r'\b(A[1-2]-[0-9]+|C[1-2]-[A-Z0-9]+|[A-Za-z\s]+Lab)\b', page_text)
-            room_name = room_match.group(1) if room_match else "Unknown Room"
+            # Extract Room
+            # Strategy: Look for pattern in first few lines, or trust the first line if short.
+            # Regex covers: A1-109, C1-B05, B2-202, Bio Lab, etc.
+            room_name = "Unknown Room"
+            room_regex = r'\b([A-Z]\d-[A-Z0-9\-]+|[A-Za-z\s]+(?:Lab|Hall|Auditorium|Room))\b'
             
-            # Extract Section
-            section_match = re.search(r'(BS[A-Z]+-F\d+\s+(?:Green|Blue|Red|White))', page_text)
+            # Prioritize searching in the first 3 lines
+            header_text = "\n".join(lines[:3])
+            room_match = re.search(room_regex, header_text)
+            
+            if room_match:
+                room_name = room_match.group(1)
+            elif lines and len(lines[0]) < 15 and re.match(r'^[A-Z0-9\-]+$', lines[0]):
+                 # Fallback: First line is short and alphanumeric (e.g., "A1-109")
+                room_name = lines[0]
+            
+            # Extract Section (e.g., BSAI-F24 Green)
+            section_match = re.search(r'(BS[A-Z]+-(?:F|S)\d+\s+(?:Green|Blue|Red|White|[A-Z]))', page_text)
             section_name = section_match.group(1) if section_match else "Unknown Section"
 
             # 2. Extract Table

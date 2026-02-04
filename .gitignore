@@ -1,1 +1,6 @@
 venv
+outputs/
+uploads/
+
+# YoYo AI version control directory
+.yoyo/
