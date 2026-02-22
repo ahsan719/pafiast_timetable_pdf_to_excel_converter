@@ -27,7 +27,7 @@
 
 ## 🎯 What is Timely?
 
-**Timely** is an open-source web tool built **specifically for PAF-IAST** (Pakistan Air Force Institute of Applied Sciences & Technology) that converts timetable PDFs into clean, room-organized Excel spreadsheets.
+**Timely** is an open-source web tool built **specifically for PAF-IAST** (Pak-Austria Fachhochschule Institute of Applied Sciences & Technology) that converts timetable PDFs into clean, room-organized Excel spreadsheets.
 
 > No sign-up. No API keys. No BS — just upload and download.
 
