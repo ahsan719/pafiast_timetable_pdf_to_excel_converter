@@ -1,82 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timetable Converter</title>
+    <title>Timely — PDF Timetable to Excel Converter</title>
+    <meta name="description"
+        content="Convert your PDF classroom timetables into clean, formatted Excel spreadsheets instantly. Free, fast, and beautifully organized.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
-    <!-- Ionicons -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
+
 <body>
 
-    <div class="background-globes">
-        <div class="globe globe-1"></div>
-        <div class="globe globe-2"></div>
-    </div>
-
-    <div class="container">
-        <header>
-            <div class="logo">
-                <ion-icon name="grid-outline"></ion-icon>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <div class="logo-icon">
+                    <i data-lucide="calendar-clock" class="logo-lucide"></i>
+                </div>
                 <span>Timely</span>
-            </div>
-            <h1>Timetable Converter</h1>
-            <p>Upload your PDF classroom timetable to get a formatted Excel report instantly.</p>
-        </header>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#converter">Converter</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+            </ul>
+            <a href="#converter" class="nav-cta">Get Started</a>
+        </div>
+    </nav>
 
-        <main>
-            <!-- UPload Section -->
-            <section id="upload-section" class="card glass-card">
-                <div class="drop-zone" id="drop-zone">
-                    <div class="icon-wrapper">
-                        <ion-icon name="cloud-upload-outline"></ion-icon>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient hero-gradient-1"></div>
+            <div class="hero-gradient hero-gradient-2"></div>
+            <div class="hero-grid-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i data-lucide="zap"></i>
+                <span>Instant Conversion — No Sign-Up Required</span>
+            </div>
+            <h1>Transform PDF Timetables<br>into <span class="text-gradient">Excel Spreadsheets</span></h1>
+            <p class="hero-subtitle">Upload your classroom timetable PDF and get a beautifully formatted, room-organized
+                Excel file in seconds. Built for educators and administrators.</p>
+            <div class="hero-actions">
+                <a href="#converter" class="btn btn-primary btn-lg">
+                    <i data-lucide="upload-cloud"></i>
+                    Upload PDF Now
+                </a>
+                <a href="#how-it-works" class="btn btn-ghost btn-lg">
+                    <i data-lucide="play-circle"></i>
+                    See How It Works
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Free to Use</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">&lt;10s</span>
+                    <span class="stat-label">Processing Time</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">.xlsx</span>
+                    <span class="stat-label">Output Format</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Why Timely?</span>
+                <h2>Everything you need, nothing you don't</h2>
+                <p>A focused tool that does one thing exceptionally well.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-blue">
+                        <i data-lucide="file-text"></i>
                     </div>
-                    <h3>Drag & Drop PDF here</h3>
-                    <p>or</p>
-                    <button class="btn-primary" onclick="document.getElementById('file-input').click()">Browse Files</button>
+                    <h3>PDF Parsing</h3>
+                    <p>Intelligently extracts timetable data from complex PDF layouts with high accuracy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-green">
+                        <i data-lucide="table-2"></i>
+                    </div>
+                    <h3>Room-Organized</h3>
+                    <p>Automatically groups classes by room with separate, well-formatted Excel sheets.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-purple">
+                        <i data-lucide="download"></i>
+                    </div>
+                    <h3>Instant Download</h3>
+                    <p>Get your formatted .xlsx file within seconds — no email, no waiting, no sign-up.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon feature-icon-orange">
+                        <i data-lucide="shield-check"></i>
+                    </div>
+                    <h3>Private & Secure</h3>
+                    <p>Files are processed locally and never stored. Your timetable data stays yours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Converter Section -->
+    <section class="converter-section" id="converter">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Converter</span>
+                <h2>Upload your timetable PDF</h2>
+                <p>Drag & drop or browse to select your file. We'll handle the rest.</p>
+            </div>
+
+            <!-- Upload Card -->
+            <div id="upload-section" class="upload-card">
+                <div class="drop-zone" id="drop-zone">
+                    <div class="drop-icon">
+                        <i data-lucide="upload-cloud"></i>
+                    </div>
+                    <h3>Drag & drop your PDF here</h3>
+                    <p class="drop-hint">or</p>
+                    <button class="btn btn-primary" id="browse-btn"
+                        onclick="document.getElementById('file-input').click()">
+                        <i data-lucide="folder-open"></i>
+                        Browse Files
+                    </button>
                     <input type="file" id="file-input" hidden accept=".pdf">
+                    <p class="file-info">Supports PDF files up to 16MB</p>
                     <p class="file-name" id="file-name"></p>
                 </div>
-            </section>
+            </div>
 
             <!-- Loading State -->
-            <section id="loading-section" class="hidden">
-                <div class="loader"></div>
-                <p>Analyzing PDF & Formatting Excel...</p>
-            </section>
+            <div id="loading-section" class="hidden">
+                <div class="loading-card">
+                    <div class="spinner"></div>
+                    <h3>Processing your timetable...</h3>
+                    <p>Extracting data and formatting your Excel file</p>
+                    <div class="progress-bar-track">
+                        <div class="progress-bar-fill"></div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Result Section -->
-            <section id="result-section" class="hidden">
-                <div class="success-card glass-card">
-                    <div class="success-icon">
-                        <ion-icon name="checkmark-circle"></ion-icon>
+            <div id="result-section" class="hidden">
+                <div class="success-card">
+                    <div class="success-icon-wrapper">
+                        <i data-lucide="check-circle-2"></i>
                     </div>
                     <h2>Conversion Successful!</h2>
                     <p>Your timetable has been processed and organized by classroom.</p>
-                    
-                    <a id="download-btn" href="#" class="btn-download">
-                        <ion-icon name="download-outline"></ion-icon>
+                    <a id="download-btn" href="#" class="btn btn-primary btn-lg btn-download">
+                        <i data-lucide="download"></i>
                         Download Excel Report
                     </a>
                 </div>
 
-                <div class="preview-container">
-                    <h3>Data Preview</h3>
+                <div class="result-actions">
+                    <button class="btn btn-ghost" id="toggle-preview-btn">
+                        <i data-lucide="eye"></i>
+                        View Data Preview
+                    </button>
+                    <button class="btn btn-ghost" onclick="location.reload()">
+                        <i data-lucide="refresh-cw"></i>
+                        Convert Another File
+                    </button>
+                </div>
+
+                <div class="preview-section hidden" id="preview-section">
                     <div id="dashboard-grid" class="dashboard-grid">
-                        <!-- Room Cards will be injected here -->
+                        <!-- Room tables injected here -->
                     </div>
                 </div>
-                
-                <button class="btn-text" onclick="location.reload()">Convert Another File</button>
-            </section>
-        </main>
-    </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works-section" id="how-it-works">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">How It Works</span>
+                <h2>Three simple steps</h2>
+                <p>From PDF to organized Excel in under 10 seconds.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i data-lucide="upload"></i>
+                    </div>
+                    <h3>Upload PDF</h3>
+                    <p>Drag & drop or browse to upload your classroom timetable PDF.</p>
+                </div>
+                <div class="step-connector">
+                    <i data-lucide="arrow-right"></i>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i data-lucide="cpu"></i>
+                    </div>
+                    <h3>Auto-Process</h3>
+                    <p>Our engine extracts and organizes data by room, day, and time automatically.</p>
+                </div>
+                <div class="step-connector">
+                    <i data-lucide="arrow-right"></i>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i data-lucide="file-spreadsheet"></i>
+                    </div>
+                    <h3>Download Excel</h3>
+                    <p>Get your perfectly formatted .xlsx file with each room on its own sheet.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <div class="logo-icon">
+                            <i data-lucide="calendar-clock" class="logo-lucide"></i>
+                        </div>
+                        <span>Timely</span>
+                    </a>
+                    <p>An open-source tool to convert PDF timetables into structured Excel files. Built for PAF-IAST by
+                        students, for students.</p>
+                </div>
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#converter">Converter</a></li>
+                            <li><a href="#how-it-works">How It Works</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="https://github.com/ahsan719/pafiast_timetable_pdf_to_excel_converter"
+                                    target="_blank">GitHub</a></li>
+                            <li><a href="#">Documentation</a></li>
+                            <li><a href="#">Changelog</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Timely. Made with <span class="heart">♥</span> at PAF-IAST</p>
+                <div class="footer-bottom-links">
+                    <a href="https://github.com/ahsan719/pafiast_timetable_pdf_to_excel_converter" target="_blank"
+                        aria-label="GitHub">
+                        <i data-lucide="github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="/static/script.js"></script>
+    <script>lucide.createIcons();</script>
 </body>
+
 </html>

@@ -4,7 +4,9 @@ import secrets
 from utils.timetable_processor import process_pdf_to_data, generate_formatted_excel
 import shutil
 
-app = Flask(__name__)
+app = Flask(__name__,
+            template_folder=os.path.join(os.path.dirname(__file__), '..', 'templates'),
+            static_folder=os.path.join(os.path.dirname(__file__), '..', 'static'))
 
 # Config
 UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')
@@ -71,7 +73,10 @@ def upload_file():
 
 @app.route('/download/<filename>')
 def download_file(filename):
-    return send_file(os.path.join(app.config['OUTPUT_FOLDER'], filename), as_attachment=True)
+    filepath = os.path.abspath(os.path.join(app.config['OUTPUT_FOLDER'], filename))
+    if not os.path.exists(filepath):
+        return jsonify({'error': 'File not found'}), 404
+    return send_file(filepath, as_attachment=True)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
